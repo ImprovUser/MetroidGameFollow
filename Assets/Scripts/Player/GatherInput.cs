@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem; 
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class GatherInput : MonoBehaviour
 {
     public PlayerInput playerInput;
 
@@ -10,8 +10,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     public InputActionReference jumpActionRef;
     public InputActionReference moveActionRef;
-
-    private float horizontalInput;
+    [HideInInspector]
+    public float horizontalInput;
 
     private void OnEnable()
     {
