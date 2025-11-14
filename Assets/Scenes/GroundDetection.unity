@@ -4542,6 +4542,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1201294140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1201294141}
+  m_Layer: 7
+  m_Name: RightGroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1201294141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201294140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.177, y: -1.018, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1368950879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1321664549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321664550}
+  m_Layer: 7
+  m_Name: LeftGroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1321664550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321664549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.43, y: -1.018, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1368950879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1368950875
 GameObject:
   m_ObjectHideFlags: 0
@@ -4556,6 +4618,7 @@ GameObject:
   - component: {fileID: 1368950880}
   - component: {fileID: 1368950883}
   - component: {fileID: 1368950886}
+  - component: {fileID: 1368950887}
   - component: {fileID: 1368950885}
   - component: {fileID: 1368950878}
   - component: {fileID: 1368950877}
@@ -4602,7 +4665,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.045995712, y: -0.1379872}
+  m_Offset: {x: -0.07221633, y: -0.13048571}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4612,7 +4675,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6791105, y: 1.8490256}
+  m_Size: {x: 0.73155177, y: 1.8340226}
   m_EdgeRadius: 0
 --- !u!50 &1368950877
 Rigidbody2D:
@@ -4629,7 +4692,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -4705,10 +4768,12 @@ Transform:
   m_GameObject: {fileID: 1368950875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.88, y: -1.93, z: 0}
+  m_LocalPosition: {x: -0.97, y: -2.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1321664550}
+  - {fileID: 1201294141}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1368950880
@@ -4822,6 +4887,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1368950877}
+  groundRayDistance: 0.05
+  leftGroundPoint: {fileID: 1321664550}
+  rightGroundPoint: {fileID: 1201294141}
+  whatToDetect:
+    serializedVersion: 2
+    m_Bits: 64
+  grounded: 0
 --- !u!114 &1368950886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4837,6 +4909,24 @@ MonoBehaviour:
   thisAbilityState: 1
   isPermitted: 1
   speed: 5
+--- !u!114 &1368950887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368950875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64a3ed6c0305f54a9b4ae4ca856fc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisAbilityState: 2
+  isPermitted: 1
+  jumpActionRef: {fileID: -379145617561166487, guid: 45fc955bbd1e32b42983fffa68c40341, type: 3}
+  jumpForce: 10
+  airSpeed: 5
+  minimumAirTime: 0.2
 --- !u!1 &1858826343
 GameObject:
   m_ObjectHideFlags: 0

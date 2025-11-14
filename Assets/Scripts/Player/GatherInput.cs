@@ -15,27 +15,14 @@ public class GatherInput : MonoBehaviour
 
     private void OnEnable()
     {
-        jumpActionRef.action.performed += TryToJump;
-        jumpActionRef.action.canceled += StopJump;
+
     }
 
     private void OnDisable()
     {
-        jumpActionRef.action.performed -= TryToJump;
-        jumpActionRef.action.canceled -= StopJump;
-        playerMap.Disable();
+
     }
 
-    private void TryToJump(InputAction.CallbackContext value)
-    {
-        Debug.Log("Jump action triggered");
-    }
-
-    private void StopJump(InputAction.CallbackContext value)
-    {
-        Debug.Log("Jump action stopped");
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
