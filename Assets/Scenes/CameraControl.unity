@@ -5057,6 +5057,7 @@ GameObject:
   - component: {fileID: 1368950886}
   - component: {fileID: 1368950887}
   - component: {fileID: 1368950888}
+  - component: {fileID: 1368950889}
   - component: {fileID: 1368950885}
   - component: {fileID: 1368950878}
   - component: {fileID: 1368950877}
@@ -5388,6 +5389,21 @@ MonoBehaviour:
   wallJumpActionRef: {fileID: -379145617561166487, guid: 45fc955bbd1e32b42983fffa68c40341, type: 3}
   wallJumpForce: {x: 8, y: 10}
   wallJumpMaxTime: 0.4
+--- !u!114 &1368950889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368950875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087a8d2e29dd858469889e8107f8eca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisAbilityState: 5
+  isPermitted: 1
+  maxSlideSpeed: 0.5
 --- !u!1 &1858826343
 GameObject:
   m_ObjectHideFlags: 0
