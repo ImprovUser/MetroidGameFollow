@@ -4514,7 +4514,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.796875
+  orthographic size: 4.71875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4645,6 +4645,37 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &650531267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 650531268}
+  m_Layer: 7
+  m_Name: WallLowerCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &650531268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650531267}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.239, y: -0.425, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1368950879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832833281
 GameObject:
   m_ObjectHideFlags: 0
@@ -5025,6 +5056,7 @@ GameObject:
   - component: {fileID: 1368950883}
   - component: {fileID: 1368950886}
   - component: {fileID: 1368950887}
+  - component: {fileID: 1368950888}
   - component: {fileID: 1368950885}
   - component: {fileID: 1368950878}
   - component: {fileID: 1368950877}
@@ -5099,7 +5131,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1.7
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0b68f8adf0e80bc43ad9606fe5905106, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5180,6 +5212,8 @@ Transform:
   m_Children:
   - {fileID: 1321664550}
   - {fileID: 1201294141}
+  - {fileID: 2081394380}
+  - {fileID: 650531268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1368950880
@@ -5300,6 +5334,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   grounded: 0
+  wallRayDistance: 0.07
+  wallCheckPointUpper: {fileID: 2081394380}
+  wallCheckPointLower: {fileID: 650531268}
+  wallDetected: 0
 --- !u!114 &1368950886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5333,6 +5371,23 @@ MonoBehaviour:
   jumpForce: 10
   airSpeed: 5
   minimumAirTime: 0.2
+--- !u!114 &1368950888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368950875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807b71d98fc2a3747a27995496ce0025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisAbilityState: 4
+  isPermitted: 1
+  wallJumpActionRef: {fileID: -379145617561166487, guid: 45fc955bbd1e32b42983fffa68c40341, type: 3}
+  wallJumpForce: {x: 8, y: 10}
+  wallJumpMaxTime: 0.4
 --- !u!1 &1858826343
 GameObject:
   m_ObjectHideFlags: 0
@@ -11141,6 +11196,37 @@ Transform:
   - {fileID: 194707057}
   - {fileID: 1858826344}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2081394379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081394380}
+  m_Layer: 7
+  m_Name: WallUpperCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2081394380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081394379}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.239, y: 0.596, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1368950879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
