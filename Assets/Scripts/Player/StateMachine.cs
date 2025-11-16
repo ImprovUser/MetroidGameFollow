@@ -10,6 +10,18 @@ public class StateMachine
     {
         foreach (BaseAbility ability in arrayOfAbilites)
         {
+            if (ability.thisAbilityState == newState)
+            {
+                if (!ability.isPermitted)
+                {
+                    return;
+                }
+                
+            }
+        }
+
+        foreach (BaseAbility ability in arrayOfAbilites)
+        {
             if(ability.thisAbilityState == currentState)
             {
                 ability.ExitAbility();
@@ -17,12 +29,11 @@ public class StateMachine
             }
         }
 
-
-        foreach(BaseAbility ability in arrayOfAbilites)
+        foreach (BaseAbility ability in arrayOfAbilites)
         {
-            if(ability.thisAbilityState == newState)
+            if (ability.thisAbilityState == newState)
             {
-                if(ability.isPermitted)
+                if (ability.isPermitted)
                 {
                     currentState = newState;
                     ability.EnterAbility();
@@ -30,6 +41,8 @@ public class StateMachine
                 break;
             }
         }
+
+
     }
 
     public void ForceChange(PlayerStates.State newState)
